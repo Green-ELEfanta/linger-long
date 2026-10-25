@@ -1,0 +1,912 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Linger Long · Правила для авторов</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Правила участия авторов в журнале Linger Long: стоимость, дедлайны, материалы, фото, оплата, юридическая информация.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@400;500;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Sacramento&display=swap">
+<script>
+/* ==== НАСТРОЙКИ САЙТА (меняются здесь или подставляются из таблицы при запуске через Apps Script) ==== */
+window.LL_CONFIG = /*LL_CONFIG*/{
+  version: "1.0 · 25.10.2026",
+  issue: "Зимний выпуск / 18",
+  formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfl9A2kKh90YJPavExC8kvuNFZgUAOiYmM-r0qobk-xPKUlFg/viewform",
+  orderFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdPRJNcE8y6qsoCEAosRjjyltyLmfApOfOdoBNEVLdb2jUY1A/viewform",
+  orderDeadline: "2026-12-23",
+  shipDate: "2027-01-12",
+  botUsername: "",
+  hasRegular: true,
+  apiUrl: "https://script.google.com/macros/s/AKfycbypG23cpM82F4h1dBBNYiOwRPGVEy7P8Z4F6hF3Px48Fy99t--MqWo4tLh3mnWVTDGfPQ/exec",
+  regularCodeHash: "",
+  regularFormUrl: "",
+  regularRubrics: [],
+  deliveryEuropost: 5,
+  priceCopy: 78,
+  priceRegular: 78,
+  pricePage: 9,
+  pagesForTwoCopies: 3,
+  maxPages: 5,
+  contactMain: "@yuliyakobyzeva",
+  contactTech: "@artiechoke",
+  instagram: "@lingerlongmagazine",
+  operator: "Юлия Медюхо, автор проекта Linger Long",
+  deadlines: [
+    ["2026-11-22", "Приём заявок", "Заполнить анкету после прочтения правил. Одобренные авторы получают папку, ссылку на группу и бота."],
+    ["2026-12-06", "Тексты", "Статья, ответы на вопросы, тексты стихов и информация о себе — в папку «03 Тексты»."],
+    ["2026-12-10", "Аудио стихов", "Голосовое прочтение каждого отобранного стихотворения — в папку «04 Аудио стихов»."],
+    ["2026-12-13", "Фото и соцсети", "Портрет по грудь (оригинал файла) и ссылка на открытый профиль."],
+    ["2026-12-20", "Превью и правки", "Смотрите свои страницы в «06 Превью». Один раунд правок текста и фото."],
+    ["2026-12-23", "Оплата", "Число страниц утверждено, сумма пришла в боте. Оплата и чек через бота."],
+    ["2026-12-26", "Печать", "Макет уходит в типографию. После этой даты изменения невозможны."],
+    ["2027-01-12", "Рассылка", "Отправка Европочтой или Белпочтой. Трек-номер придёт в бот."]
+  ]
+}/*END_LL_CONFIG*/;
+</script>
+<style>
+/* Макет: журнальная полоса — жёлтая обложка-шапка, далее «листы» разделов с карандашными пометками [ ] и пилюлями; справа на десктопе липкий счётчик прочтения. */
+:root{
+  --paper:#FADE70;      /* фирменный жёлтый */
+  --sheet:#FFF8DC;      /* лист внутри */
+  --ink:#111111;
+  --ink-soft:#4a4432;
+  --pink:#E879B8;
+  --red:#D01C18;
+  --sky:#BFDDF2;        /* зимняя пастель */
+  --lilac:#D9C8F0;
+  --line:#1111111f;
+  --ok:#2f7d4a;
+  --display:"Oswald","Arial Narrow",Arial,sans-serif;
+  --serif:"PT Serif",Georgia,"Times New Roman",serif;
+  --slab:"Alfa Slab One","Rockwell",Georgia,serif;
+  --script:"Sacramento","Brush Script MT",cursive;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#1b1910; --sheet:#24211a; --ink:#f6efd6; --ink-soft:#c9bf9c; --pink:#f08cc6; --red:#ff6b5e;
+  --sky:#2b4458; --lilac:#3d3355; --line:#f6efd626; --ok:#7fd39a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#1b1910; --sheet:#24211a; --ink:#f6efd6; --ink-soft:#c9bf9c; --pink:#f08cc6; --red:#ff6b5e;
+  --sky:#2b4458; --lilac:#3d3355; --line:#f6efd626; --ok:#7fd39a; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--serif);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration-color:var(--pink);text-decoration-thickness:2px;text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--pink);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* шапка */
+.cover{padding-block:28px 36px;border-bottom:2px solid var(--ink)}
+.mast{display:flex;align-items:baseline;gap:.2em;flex-wrap:wrap}
+.mast .slab{font:400 clamp(44px,9vw,92px)/.9 var(--slab);letter-spacing:.01em}
+.mast .script{font:400 clamp(40px,7vw,74px)/.9 var(--script);color:var(--red);transform:translateY(.12em) rotate(-4deg)}
+.handle{font:500 13px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;margin-top:6px;color:var(--ink-soft)}
+.cover-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;margin-top:26px;align-items:end}
+.bracket{font:500 14px/1.3 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.bracket::before{content:"[ "}.bracket::after{content:" ]"}
+h1{font:700 clamp(34px,6vw,64px)/1 var(--display);text-transform:uppercase;margin:.25em 0 .2em;text-wrap:balance;letter-spacing:.01em}
+.lede{font-size:clamp(17px,2vw,20px);max-width:36em;margin:0}
+.pill{display:inline-block;font:500 13px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;padding:9px 14px;border-radius:999px;border:2px solid var(--ink);background:var(--sheet)}
+.pill.pink{background:var(--pink);color:#111;border-color:#111}
+.pill.sky{background:var(--sky)}
+.tilt-l{transform:rotate(-2.5deg)}.tilt-r{transform:rotate(2deg)}
+.cover-note{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.price-stamp{background:var(--sheet);border:2px solid var(--ink);padding:16px 18px;border-radius:6px;box-shadow:6px 6px 0 var(--ink);transform:rotate(1.2deg);max-width:340px}
+.price-stamp b{font:700 40px/1 var(--display)}
+.price-stamp small{display:block;color:var(--ink-soft);font-size:14px;line-height:1.4;margin-top:6px}
+
+/* навигация */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:32px;padding-block:32px 56px}
+.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);align-self:start;display:flex;flex-direction:column;gap:14px}
+.meter{background:var(--sheet);border:2px solid var(--ink);border-radius:8px;padding:14px 16px}
+.meter .count{font:700 30px/1 var(--display);font-variant-numeric:tabular-nums}
+.bar{height:10px;border:2px solid var(--ink);border-radius:999px;margin-top:10px;overflow:hidden;background:var(--paper)}
+.bar i{display:block;height:100%;width:0;background:var(--pink);transition:width .35s ease}
+.toc{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;font:500 14px/1.3 var(--display);letter-spacing:.04em;text-transform:uppercase}
+.toc a{display:flex;gap:8px;align-items:center;text-decoration:none;padding:6px 8px;border-radius:6px}
+.toc a:hover{background:var(--sheet)}
+.toc .dot{width:12px;height:12px;border:2px solid var(--ink);border-radius:50%;flex:none}
+.toc a.done .dot{background:var(--ok);border-color:var(--ok)}
+
+/* листы разделов */
+main{display:flex;flex-direction:column;gap:22px;min-width:0}
+.sheet{background:var(--sheet);border:2px solid var(--ink);border-radius:4px;padding:26px clamp(18px,3vw,34px) 22px;position:relative;scroll-margin-top:16px}
+.sheet h2{font:700 clamp(24px,3.4vw,34px)/1.05 var(--display);text-transform:uppercase;margin:4px 0 14px;text-wrap:balance}
+.sheet h3{font:500 18px/1.2 var(--display);text-transform:uppercase;letter-spacing:.06em;margin:22px 0 8px}
+.sheet p,.sheet li{max-width:40em}
+.sheet ul,.sheet ol{padding-left:1.2em;margin:.4em 0}
+.sheet li{margin:.25em 0}
+.sheet .tape{position:absolute;top:-12px;right:28px;width:92px;height:24px;background:var(--pink);opacity:.8;transform:rotate(4deg)}
+.sheet:nth-of-type(3n) .tape{background:var(--sky);left:30px;right:auto;transform:rotate(-3deg)}
+.sheet:nth-of-type(3n+2) .tape{background:var(--lilac)}
+.read{margin-top:18px;display:flex;justify-content:flex-end;border-top:1px dashed var(--line);padding-top:14px}
+.read button{font:500 14px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;padding:11px 16px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.read button:hover{background:var(--paper)}
+.read button[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:#fff}
+.note{border-left:4px solid var(--pink);padding:8px 14px;background:color-mix(in srgb,var(--pink) 10%,transparent);margin:14px 0;max-width:40em}
+.note.red{border-color:var(--red);background:color-mix(in srgb,var(--red) 9%,transparent)}
+
+.perks{list-style:none;padding:0!important;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
+.perks li{margin:0;max-width:none;border:2px solid var(--ink);border-radius:6px;padding:12px 14px;background:var(--paper)}
+.perks li:nth-child(4){background:color-mix(in srgb,var(--pink) 22%,var(--paper))}
+.perks li:nth-child(6){background:color-mix(in srgb,var(--sky) 45%,var(--paper))}
+.perks b{display:block;font:500 16px/1.2 var(--display);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+
+/* выбор пути */
+.choose{padding-block:26px 8px}
+.choose-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.path{display:flex;flex-direction:column;gap:8px;text-align:left;font:inherit;color:var(--ink);background:var(--sheet);border:2px solid var(--ink);border-radius:8px;padding:18px 20px;cursor:pointer;box-shadow:5px 5px 0 var(--ink);transition:transform .15s ease, box-shadow .15s ease}
+.path:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.path[aria-pressed="true"]{background:var(--pink);color:#111}
+.path b{font:700 clamp(22px,3vw,30px)/1.05 var(--display);text-transform:uppercase}
+.path span{font-size:16px;line-height:1.45}
+.path .go{font:500 13px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;margin-top:4px}
+.buy{padding-block:24px 56px}
+.buy .sheet{max-width:880px}
+.buy-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+.final.light{background:var(--sheet);color:var(--ink)}
+.final.light .muted{color:var(--ink-soft)}
+.final.light .cta{border-color:var(--ink)}
+.final.light .cta:disabled{color:var(--ink)}
+.final.light .success{border-color:var(--ink)}
+.final.light .success a.btn{background:var(--ink);color:var(--sheet)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+a.cta{display:inline-block;text-decoration:none}
+.codebox{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:16px 0 6px}
+.codebox input{font:500 20px/1 var(--display);letter-spacing:.08em;padding:13px 16px;border:2px solid var(--ink);border-radius:999px;background:var(--paper);color:var(--ink);min-width:0;flex:1 1 220px;max-width:340px}
+.codebox input:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.codebox .cta{transform:none;border-color:var(--ink)}
+.codeerr{color:var(--red);font-weight:700;min-height:1.4em}
+.rubs{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.rubs button{font:500 16px/1.2 var(--display);text-transform:uppercase;letter-spacing:.04em;padding:10px 16px;border:2px solid var(--ink);border-radius:999px;background:var(--paper);color:var(--ink);cursor:pointer}
+.rubs button[aria-pressed="true"]{background:var(--pink);color:#111;box-shadow:3px 3px 0 var(--ink)}
+.rubother{display:block;font:inherit;font-size:17px;padding:11px 14px;border:2px solid var(--ink);border-radius:6px;background:var(--paper);color:var(--ink);width:100%;max-width:420px}
+.regprice{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.regprice div{border:2px solid var(--ink);border-radius:6px;padding:12px 14px;background:var(--paper)}
+.regprice b{display:block;font:700 30px/1 var(--display)}
+.regprice span{font-size:15px}
+.regprice b span{font:inherit}
+.regprice div:last-child{background:var(--pink);color:#111}
+.linkbtn{font:inherit;background:none;border:0;padding:0;color:inherit;text-decoration:underline;text-decoration-color:var(--pink);text-decoration-thickness:2px;text-underline-offset:3px;cursor:pointer}
+@media (max-width:700px){.buy-grid{grid-template-columns:1fr}}
+/* шаги */
+.steps{list-style:none;padding:0!important;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;counter-reset:s}
+.steps li{counter-increment:s;border:2px solid var(--ink);border-radius:6px;padding:12px 14px 12px 52px;position:relative;margin:0;max-width:none}
+.steps li::before{content:counter(s);position:absolute;left:12px;top:10px;font:700 26px/1 var(--display);color:var(--red)}
+.steps b{font-family:var(--display);font-weight:500;text-transform:uppercase;letter-spacing:.04em;display:block}
+
+/* калькулятор */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin-top:10px}
+.ctrl{display:flex;flex-direction:column;gap:14px}
+.ctrl label,.ctrl .lbl{font:500 13px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{min-width:46px;font:700 18px/1 var(--display);padding:10px 12px;border:2px solid var(--ink);background:transparent;color:var(--ink);border-radius:8px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
+.stepper{display:flex;align-items:center;gap:10px}
+.stepper button{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);background:transparent;color:var(--ink);font:700 20px/1 var(--display);cursor:pointer}
+.stepper output{font:700 22px/1 var(--display);min-width:2ch;text-align:center;font-variant-numeric:tabular-nums}
+.receipt{border:2px dashed var(--ink);border-radius:6px;padding:16px 18px;font-variant-numeric:tabular-nums;background:var(--paper)}
+.receipt .row{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px dotted var(--line)}
+.receipt .total{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px}
+.receipt .total b{font:700 38px/1 var(--display)}
+.ptable{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;margin-top:8px}
+.ptable th,.ptable td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left}
+.ptable th{font:500 13px/1.2 var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.scroll{overflow-x:auto}
+
+/* таймлайн */
+.tl{list-style:none;padding:0!important;margin:8px 0 0;position:relative}
+.tl::before{content:"";position:absolute;left:96px;top:6px;bottom:6px;border-left:2px solid var(--ink)}
+.tl li{display:grid;grid-template-columns:84px 1fr;gap:28px;margin:0 0 14px;max-width:none;position:relative}
+.tl li::after{content:"";position:absolute;left:90px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--sheet);border:2px solid var(--ink)}
+.tl li.past{opacity:.55}.tl li.past::after{background:var(--ink)}
+.tl li.next::after{background:var(--pink)}
+.tl time{font:700 18px/1.2 var(--display);text-align:right;font-variant-numeric:tabular-nums}
+.tl b{font:500 17px/1.2 var(--display);text-transform:uppercase;letter-spacing:.04em}
+.tl .next-tag{margin-left:8px;font:500 11px/1 var(--display);padding:4px 7px;border-radius:999px;background:var(--pink);color:#111;vertical-align:2px}
+
+/* фото до/после */
+.dodont{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:10px}
+.frame{border:2px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
+.frame .pic{aspect-ratio:4/5;max-width:100%;position:relative;display:grid;place-items:end center;overflow:hidden}
+.frame .cap{padding:10px 12px;font-size:15px;line-height:1.35}
+.frame .cap b{font-family:var(--display);font-weight:500;text-transform:uppercase;letter-spacing:.06em}
+.frame.good .cap b{color:var(--ok)}.frame.bad .cap b{color:var(--red)}
+.person{width:58%;aspect-ratio:1/1.25;position:relative}
+.person::before{content:"";position:absolute;left:31%;top:6%;width:38%;aspect-ratio:1;border-radius:50%;background:var(--skin,#d9a98a)}
+.person::after{content:"";position:absolute;left:8%;bottom:0;width:84%;height:52%;border-radius:48% 48% 0 0;background:var(--cloth,#3b4a6b)}
+.pic.light{background:linear-gradient(#f4efe6,#e7e0d3)}
+.pic.dark{background:linear-gradient(#24211a,#3a3326)}
+.pic.dark .person{filter:brightness(.55)}
+.pic.filter{background:linear-gradient(135deg,#ff8ad1,#8a7dff)}
+.pic.filter .person{filter:saturate(2.5) hue-rotate(40deg) blur(.6px)}
+.pic.crop .person{position:absolute;width:130%;left:-15%;top:-27.6%}
+.mark{z-index:2}
+.mark{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 18px/1 var(--display);color:#fff}
+.good .mark{background:var(--ok)}.bad .mark{background:var(--red)}
+
+/* папка */
+.tree{font:400 15px/1.7 ui-monospace,"SF Mono",Menlo,Consolas,monospace;background:var(--paper);border:2px solid var(--ink);border-radius:6px;padding:14px 16px;overflow-x:auto;white-space:pre}
+
+/* финал */
+.final{background:var(--ink);color:var(--paper);border-radius:6px;padding:28px clamp(18px,3vw,34px);border:2px solid var(--ink)}
+.final h2{font:700 clamp(26px,4vw,40px)/1 var(--display);text-transform:uppercase;margin:0 0 10px}
+.final p{max-width:40em}
+.agree{display:flex;gap:12px;align-items:flex-start;margin:18px 0;font-size:17px;cursor:pointer}
+.agree input{width:24px;height:24px;flex:none;margin-top:2px;accent-color:var(--pink)}
+.agree.locked{opacity:.55;cursor:not-allowed}
+.cta{font:700 18px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;padding:16px 22px;border-radius:999px;border:2px solid var(--paper);background:var(--pink);color:#111;cursor:pointer;transform:rotate(-1.5deg)}
+.cta:disabled{background:transparent;color:var(--paper);opacity:.5;cursor:not-allowed;transform:none}
+.success{margin-top:18px;border:2px dashed var(--paper);border-radius:6px;padding:16px 18px}
+.success a.btn{display:inline-block;margin:10px 10px 0 0;font:700 16px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;padding:13px 18px;border-radius:999px;background:var(--paper);color:var(--ink);text-decoration:none}
+.muted{color:var(--ink-soft)}
+.final .muted{color:color-mix(in srgb,var(--paper) 70%,transparent)}
+footer{border-top:2px solid var(--ink);padding-block:22px 34px;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+.copy{font:inherit;border:1px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;padding:2px 10px;cursor:pointer;font-size:13px}
+
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .side{position:static;order:-1}
+  .toc{flex-direction:row;flex-wrap:wrap}
+  .toc a{padding:6px 10px;border:1px solid var(--line)}
+  .cover-grid{grid-template-columns:1fr}
+  .calc{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .tl::before{left:8px}
+  .tl li{grid-template-columns:1fr;gap:2px;padding-left:30px}
+  .tl li::after{left:2px}
+  .tl time{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="mast" aria-label="Linger long"><span class="slab">LINGER</span><span class="script">long</span></div>
+    <div class="handle" id="handle">@lingerlongmagazine · летопись творца современности</div>
+    <div class="cover-grid">
+      <div>
+        <span class="bracket">правила для авторов · версия <span id="ver"></span></span>
+        <h1 id="issueTitle">Зимний выпуск / 18</h1>
+        <p class="lede">Здесь всё, что нужно знать до заявки: сколько стоит участие, что и когда прислать, какие нужны фото и как устроены оплата и доставка. Прочитайте разделы, отметьте каждый — и в конце откроется анкета.</p>
+      </div>
+      <div class="cover-note">
+        <span class="pill pink tilt-l">участие по одобрению редакции</span>
+        <div class="price-stamp">
+          <span class="bracket">экземпляр журнала</span><br>
+          <b id="stampPrice">78 BYN</b>
+          <small id="stampNote">+ 9 BYN за каждую страницу автора. От 3 страниц — два экземпляра. Максимум 5 страниц.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="choose" aria-label="Что вы хотите">
+  <div class="wrap">
+    <span class="bracket">с чего начнём</span>
+    <div class="choose-grid" style="margin-top:10px">
+      <button type="button" class="path" id="pathBuy" aria-pressed="false"><b>Хочу журнал</b><span>Заказать печатный выпуск себе или в подарок: стоимость, доставка, как оплатить.</span><span class="go">заказать →</span></button>
+      <button type="button" class="path" id="pathAuthor" aria-pressed="true"><b>Хочу стать автором</b><span>Опубликовать стихи, статью или историю в выпуске: правила, взнос, дедлайны, анкета автора.</span><span class="go">к правилам →</span></button>
+      <button type="button" class="path" id="pathRegular" aria-pressed="false"><b>Постоянный автор рубрики</b><span>Для авторов постоянных рубрик журнала: вход по кодовому слову от редакции, своя запись в выпуск.</span><span class="go">ввести слово →</span></button>
+    </div>
+  </div>
+</section>
+
+<div class="wrap buy" id="buyView" hidden>
+  <section class="sheet" aria-labelledby="buyH">
+    <span class="tape" aria-hidden="true"></span>
+    <span class="bracket">для читателей</span>
+    <h2 id="buyH">Заказать журнал</h2>
+    <p>Linger Long — печатная летопись творцов современности: статьи, интервью, истории людей, которые создают, и стихи, которые можно не только прочитать, но и услышать.</p>
+    <h3>Что внутри</h3>
+    <ul class="perks">
+      <li><b>Печатный выпуск</b>Журнал из типографии: тексты, интервью, фото и иллюстрации в стиле выпуска.</li>
+      <li><b>QR-коды со стихами</b>Наведите камеру — и поэт читает своё стихотворение под оригинальную музыку и художественное видео.</li>
+      <li><b>Страницы для себя</b>Места для заметок и рефлексии, метафорические карты, вопросы к читателю.</li>
+      <li><b>Знакомство с авторами</b>QR на соцсети каждого автора: подписывайтесь на тех, кто откликнулся.</li>
+    </ul>
+    <div class="buy-grid">
+      <div>
+        <h3>Стоимость</h3>
+        <ul>
+          <li>Экземпляр — <b data-k="priceCopy">78</b> BYN.</li>
+          <li>Доставка отдельно: Европочта по Беларуси — <b data-k="deliveryEuropost">5</b> BYN за посылку, Белпочта и СДЭК (Россия) — по тарифу службы.</li>
+          <li>Банковскую комиссию оплачивает отправитель.</li>
+        </ul>
+        <h3>Сроки</h3>
+        <ul>
+          <li>Приём заказов — до <b id="ordDl">23.12.2026</b>.</li>
+          <li>Рассылка — с <b id="shipDl">12.01.2027</b>.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Расчёт</h3>
+        <div class="ctrl">
+          <div><span class="lbl" id="oqLbl">Экземпляров</span>
+            <div class="stepper" role="group" aria-labelledby="oqLbl"><button type="button" id="oqMinus" aria-label="Меньше">−</button><output id="oqOut">1</output><button type="button" id="oqPlus" aria-label="Больше">+</button></div></div>
+          <div><span class="lbl" id="odLbl">Доставка</span>
+            <div class="seg" id="odSeg" role="group" aria-labelledby="odLbl"><button type="button" data-d="euro" aria-pressed="true">Европочта</button><button type="button" data-d="bel" aria-pressed="false">Белпочта</button><button type="button" data-d="cdek" aria-pressed="false">СДЭК</button></div></div>
+          <div class="receipt" aria-live="polite"><span class="bracket">к оплате</span><div id="orRows"></div><div class="total"><span>Итого</span><b id="orTotal">0</b></div></div>
+        </div>
+      </div>
+    </div>
+    <h3>Как заказать</h3>
+    <ol class="steps">
+      <li><b>Анкета</b>Количество, доставка, контакты — 2 минуты.</li>
+      <li><b>Подтверждение</b>На почту придут сумма, реквизиты и ссылка на бота.</li>
+      <li><b>Оплата</b>Платите по реквизитам и отправляете чек боту или ответом на письмо.</li>
+      <li><b>Доставка</b>Трек-номер придёт в бот и на почту.</li>
+    </ol>
+    <p class="muted">Linger Long — некоммерческий творческий проект, не СМИ. Экземпляры — презентационные, оплата возмещает расходы на печать и пересылку; после сдачи макета в печать она не возвращается. Персональные данные обрабатываются с вашего согласия по Закону РБ № 99-З (подробнее — в анкете и в разделе «Юридическая информация» правил).</p>
+  </section>
+  <section class="final light" aria-labelledby="buyAgreeH" style="max-width:880px;margin-top:22px">
+    <h2 id="buyAgreeH">Оформить заказ</h2>
+    <label class="agree" id="buyAgreeLbl"><input type="checkbox" id="buyAgree"> <span>Я ознакомился(ась) с условиями заказа и стоимостью доставки.</span></label>
+    <button class="cta" id="buyBtn" type="button" disabled>Перейти к анкете заказа</button>
+    <div class="success" id="buySuccess" hidden>
+      <a class="btn" id="orderLink" href="#" target="_top" rel="noopener">Открыть анкету заказа</a>
+      <p class="muted" id="orderMissing" hidden>Приём заказов скоро откроется. Пока можно написать <span data-k="contactMain">@yuliyakobyzeva</span>.</p>
+    </div>
+    <p style="margin-top:18px">Хотите сами попасть на страницы? <button type="button" class="linkbtn" id="toAuthor">Стать автором →</button></p>
+  </section>
+</div>
+
+<div class="wrap buy" id="regView" hidden>
+  <section class="sheet" aria-labelledby="regH">
+    <span class="tape" aria-hidden="true"></span>
+    <span class="bracket">для постоянных авторов</span>
+    <h2 id="regH">Постоянные рубрики</h2>
+    <div id="regGate">
+      <p>Этот раздел для авторов постоянных рубрик Linger Long. Введите кодовое слово, которое вам дала редакция.</p>
+      <form class="codebox" id="codeForm" autocomplete="off">
+        <label for="codeIn" class="sr">Кодовое слово</label>
+        <input id="codeIn" type="text" placeholder="кодовое слово" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go">
+        <button class="cta" id="codeBtn" type="submit">Войти</button>
+      </form>
+      <p class="codeerr" id="codeErr" aria-live="polite"></p>
+      <p class="muted">Нет слова, а рубрику ведёте? Напишите <span data-k="contactMain">@yuliyakobyzeva</span>. Новым авторам — <button type="button" class="linkbtn" id="toAuthor2">обычные правила и анкета →</button></p>
+    </div>
+    <div id="regInner" hidden>
+      <p><b>Слово принято.</b> Для постоянных авторов взнос фиксированный — сколько бы страниц ни заняла рубрика.</p>
+      <div class="regprice">
+        <div><b><span data-k="priceRegular">78</span> BYN</b><span>выпуск, до <span data-k="maxPages">5</span> страниц</span></div>
+        <div><b>+<span data-k="deliveryEuropost">5</span> BYN</b><span>отправка Европочтой</span></div>
+        <div><b id="regTotal">83 BYN</b><span>итого, 9 BYN за страницу не берутся</span></div>
+      </div>
+      <ul>
+        <li>Без доплаты за страницы и без обязательного второго экземпляра.</li>
+        <li>Белпочта и СДЭК (Россия) — по тарифу службы вместо 5 BYN. Дополнительный экземпляр — <span data-k="priceCopy">78</span> BYN.</li>
+        <li>Платить сейчас не нужно: точная сумма придёт в боте после согласования превью.</li>
+      </ul>
+      <h3>Выберите свою рубрику</h3>
+      <div class="rubs" id="rubs" role="group" aria-label="Рубрики"></div>
+      <label for="rubOther" class="lbl" id="rubOtherLbl" style="display:block;margin:6px 0 8px">Или впишите название рубрики</label>
+      <input class="rubother" id="rubOther" type="text" placeholder="Название рубрики">
+      <h3>Как записаться</h3>
+      <ol class="steps">
+        <li><b>Анкета</b>Своя короткая анкета для постоянных авторов: контакты, материал выпуска, доставка.</li>
+        <li><b>Папка и бот</b>После одобрения — личная папка, бот и группа выпуска, как у всех авторов.</li>
+        <li><b>Материалы</b>Портрет по грудь, тексты, аудио (для поэтов) — по общим дедлайнам.</li>
+        <li><b>Оплата</b><span data-k="priceRegular">78</span> BYN + доставка, после согласования превью.</li>
+      </ol>
+      <p class="muted">Требования к материалам, фото и дедлайны — общие: <button type="button" class="linkbtn" id="toRules">открыть правила авторов →</button></p>
+      <div class="final light" style="margin-top:18px">
+        <h2>Запись в выпуск</h2>
+        <p id="regPick" class="muted">Выберите рубрику — и откроется анкета.</p>
+        <a class="btn cta" id="regLink" href="#" target="_top" rel="noopener" hidden>Записаться в выпуск</a>
+        <p class="muted" id="regMissing" hidden>Анкета постоянных авторов скоро откроется. Пока напишите <span data-k="contactMain">@yuliyakobyzeva</span>.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap layout" id="authorView">
+  <main id="main">
+
+    <section class="sheet" id="about" data-sec>
+      <span class="tape" aria-hidden="true"></span>
+      <span class="bracket">раздел 1</span>
+      <h2>Что такое Linger Long</h2>
+      <p>Linger Long — независимый творческий проект: журнал-летопись о людях, которые создают. В каждом выпуске — статьи, интервью, стихи с QR-кодами на авторское прочтение, фото и иллюстрации.</p>
+      <p>Проект не является средством массовой информации. Печатные экземпляры выходят малым тиражом как презентационные экземпляры для авторов и друзей проекта. Взнос автора покрывает расходы на печать и пересылку, гонораров нет, прибыль проект не получает.</p>
+      <div class="note">Вся работа над выпуском идёт в трёх местах: <b>анкета</b> (заявка), <b>личная папка на Google Диске</b> (материалы) и <b>Telegram-бот + группа выпуска</b> (статус, оплата, новости). В личные сообщения материалы не присылаем.</div>
+      <div class="read"><button type="button" aria-pressed="false">Прочитано</button></div>
+    </section>
+
+    <section class="sheet" id="perks" data-sec>
+      <span class="tape" aria-hidden="true"></span>
+      <span class="bracket">раздел 2</span>
+      <h2>Что получает автор</h2>
+      <p>Взнос покрывает только печать и пересылку. Всё остальное команда делает для авторов бесплатно — это наш вклад в летопись.</p>
+      <ul class="perks">
+        <li><b>Печатный выпуск</b>Ваш экземпляр журнала из типографии, при 3+ страницах — два.</li>
+        <li><b>Электронная версия</b>PDF выпуска после официального выхода — для портфолио, сайта и соцсетей.</li>
+        <li><b>Портрет студийного качества</b>Нет профессионального фото — сделаем портрет с помощью ИИ по вашим обычным снимкам. Печатаем только после вашего «да».</li>
+        <li><b>QR-видео на вашей странице</b>Ваши стихи или рассказ в авторском прочтении под музыку, написанную специально для вас (без нарушения авторских прав), с художественным видеорядом в своём стиле для каждого автора. Как в выпуске 17, только ещё круче.</li>
+        <li><b>QR на ваш профиль</b>Читатель журнала в один клик попадает в ваш Instagram или Telegram.</li>
+        <li><b>Обучение работе с ИИ</b>Как самому делать фото и видео в нейросетях бесплатно — без покупки аккаунтов и подписок. Пошаговые инструкции и готовые промпты.</li>
+        <li><b>Дизайн и вёрстка</b>Страницы в стиле выпуска делает редакция, текст проходит корректуру.</li>
+        <li><b>Продвижение</b>Совместные публикации с <span data-k="instagram">@lingerlongmagazine</span>, рилс о вашем участии, готовые идеи и тексты для анонсов и анпакинга.</li>
+        <li><b>Сообщество</b>Группа выпуска, знакомства с творцами со всей Беларуси, совместные проекты.</li>
+        <li><b>Личный бот и папка</b>Статус материалов, напоминания о сроках, превью и трек-номер — всё в одном месте.</li>
+      </ul>
+      <p class="muted">Бонусы предоставляются безвозмездно в рамках творческого проекта и не входят во взнос.</p>
+      <div class="read"><button type="button" aria-pressed="false">Прочитано</button></div>
+    </section>
+
+    <section class="sheet" id="path" data-sec>
+      <span class="tape" aria-hidden="true"></span>
+      <span class="bracket">раздел 3</span>
+      <h2>Как попасть в выпуск</h2>
+      <ol class="steps">
+        <li><b>Правила</b>Читаете эту страницу и отмечаете согласие внизу.</li>
+        <li><b>Анкета</b>Заполняете анкету: контакты, роль, объём, доставка, согласия.</li>
+        <li><b>Одобрение</b>Редакция рассматривает заявку в течение 3 дней.</li>
+        <li><b>Папка и группа</b>На почту приходит личная папка, ссылка на группу выпуска и на бота.</li>
+        <li><b>Материалы</b>Загружаете тексты, аудио, фото — по папкам и к дедлайнам.</li>
+        <li><b>Превью</b>Смотрите свои страницы, присылаете правки один раз.</li>
+        <li><b>Оплата</b>Бот присылает сумму за утверждённое число страниц. Платите и отправляете чек боту.</li>
+        <li><b>Печать и доставка</b>Трек-номер приходит в бот, журнал — в ваше отделение.</li>
+      </ol>
+      <div class="read"><button type="button" aria-pressed="false">Прочитано</button></div>
+    </section>
+
+    <section class="sheet" id="price" data-sec>
+      <span class="tape" aria-hidden="true"></span>
+      <span class="bracket">раздел 4</span>
+      <h2>Стоимость участия</h2>
+      <ul>
+        <li>Экземпляр журнала стоит <b data-k="priceCopy">78</b> BYN — для всех.</li>
+        <li>Каждая страница автора — <b data-k="pricePage">9</b> BYN.</li>
+        <li>Если у вас <b data-k="pagesForTwoCopies">3</b> страницы и больше, выкупаются <b>два экземпляра</b> (второй — обязательный).</li>
+        <li>Максимум <b data-k="maxPages">5</b> страниц на одного автора в выпуске.</li>
+        <li>Доставка оплачивается отдельно: Европочта по Беларуси — <b data-k="deliveryEuropost">5</b> BYN за посылку (добавляется к взносу), Белпочта и СДЭК (Россия) — по тарифу службы.</li>
+        <li>Окончательное число страниц определяет вёрстка. Сумму вы получаете в боте после согласования превью — до этого ничего платить не нужно.</li>
+      </ul>
+      <div class="calc" aria-label="Калькулятор взноса">
+        <div class="ctrl">
+          <div><span class="lbl" id="pagesLbl">Страниц в выпуске</span>
+            <div class="seg" id="pagesSeg" role="group" aria-labelledby="pagesLbl"></div></div>
+          <div><span class="lbl" id="delLbl">Доставка</span>
+            <div class="seg" id="delSeg" role="group" aria-labelledby="delLbl">
+              <button type="button" data-d="euro" aria-pressed="true">Европочта</button><button type="button" data-d="bel" aria-pressed="false">Белпочта</button><button type="button" data-d="cdek" aria-pressed="false">СДЭК</button>
+            </div></div>
+          <div><span class="lbl" id="extraLbl">Дополнительные экземпляры</span>
+            <div class="stepper" role="group" aria-labelledby="extraLbl">
+              <button type="button" id="exMinus" aria-label="Меньше">−</button><output id="exOut">0</output><button type="button" id="exPlus" aria-label="Больше">+</button>
+            </div></div>
+        </div>
+        <div class="receipt" aria-live="polite">
+          <span class="bracket">расчёт взноса</span>
+          <div id="rcRows"></div>
+          <div class="total"><span>Итого</span><b id="rcTotal">0</b></div>
+        </div>
+      </div>
+      <h3>Таблица для быстрого взгляда</h3>
+      <div class="scroll"><table class="ptable" id="ptable"><thead><tr><th>Страниц</th><th>Экземпляров</th><th>Расчёт</th><th>Взнос без доставки, BYN</th></tr></thead><tbody></tbody></table></div>
+      <div class="note">Банковская комиссия оплачивается отправителем. На наш счёт должна прийти ровно сумма из бота.</div>
+      <div class="read"><button type="button" aria-pressed="false">Прочитано</button></div>
+    </section>
+
+    <section class="sheet" id="deadlines" data-sec>
+      <span class="tape" aria-hidden="true"></span>
+      <span class="bracket">раздел 5</span>
+      <h2>Дедлайны выпуска</h2>
+      <p>Даты жёсткие: макет собирается по мере поступления материалов, типография ждёт файл в срок.</p>
+      <ol class="tl" id="tl"></ol>
+      <div class="note red">Материалы после дедлайна переносятся в следующий выпуск. Если не успеваете — напишите заранее, мы поможем перестроить план.</div>
+      <div class="read"><button type="button" aria-pressed="false">Прочитано</button></div>
+    </section>
+
+    <section class="sheet" id="folder" data-sec>
+      <span class="tape" aria-hidden="true"></span>
+      <span class="bracket">раздел 6</span>
+      <h2>Ваша папка на Google Диске</h2>
+      <p>После одобрения мы сами создаём личную папку с вашим именем и открываем доступ на почту из анкеты. Папки других авторов вы не видите, а они не видят вашу.</p>
+      <p>Набор папок зависит от роли, которую вы отметили в анкете: поэту — аудио стихов, фотографу и художнику — фото работ. Отметили несколько ролей — получите все нужные папки.</p>
+      <div class="tree" role="figure" aria-label="Структура папки">Фамилия Имя/
+├─ 01 Портрет           фото по грудь, оригинал файла
+├─ 02 Фото работ        фотографам и художникам: ваши работы
+├─ 03 Тексты            о себе, статья, ответы, стихи (Word / Google Док)
+├─ 04 Аудио стихов      поэтам: одно стихотворение — один файл
+├─ 05 Соцсети и QR      ссылка или скрин QR, если удобнее
+├─ 06 Превью            здесь появятся ваши страницы (заполняет редакция)
+└─ 07 Правки            файл с правками после превью</div>
+      <h3>Как называть файлы</h3>
+      <ul>
+        <li>Портрет: <b>Фамилия_портрет.jpg</b>. Стихи: <b>Название стихотворения.docx</b>, аудио — <b>Название стихотворения.m4a</b>.</li>
+        <li>Один материал — один файл. Без архивов и без скриншотов текста.</li>
+        <li>Не загрузить с телефона? Отправьте файл боту — он положит его в нужную папку.</li>
+      </ul>
+      <p class="muted">Бот и таблица сами отмечают, что уже загружено и чего не хватает. Отписываться «я загрузил» не нужно — статус всегда виден в боте по кнопке «Мой статус».</p>
+      <div class="read"><button type="button" aria-pressed="false">Прочитано</button></div>
+    </section>
+
+    <section class="sheet" id="photo" data-sec>
+      <span class="tape" aria-hidden="true"></span>
+      <span class="bracket">раздел 7</span>
+      <h2>Фото надлежащего качества</h2>
+      <p>Фото печатается на бумаге, поэтому слабые снимки видны сразу. Нужен <b>один портрет по грудь</b>. Другие фото — ваши работы, процесс, атмосфера — по желанию.</p>
+      <div class="dodont">
+        <div class="frame good"><div class="pic light"><span class="mark" aria-hidden="true">✓</span><div class="person" style="--cloth:#3b4a6b"></div></div>
+          <div class="cap"><b>Так</b><br>Светлый однотонный фон, дневной свет из окна, кадр по грудь, взгляд в камеру, лёгкая улыбка.</div></div>
+        <div class="frame bad"><div class="pic dark"><span class="mark" aria-hidden="true">✕</span><div class="person"></div></div>
+          <div class="cap"><b>Не так</b><br>Тёмный фон, вечерний свет, тени на лице, пёстрый интерьер.</div></div>
+        <div class="frame bad"><div class="pic filter"><span class="mark" aria-hidden="true">✕</span><div class="person" style="--cloth:#7a2f6a"></div></div>
+          <div class="cap"><b>Не так</b><br>Фильтры, бьюти-эффекты, маски, снимок экрана.</div></div>
+        <div class="frame bad"><div class="pic light crop"><span class="mark" aria-hidden="true">✕</span><div class="person"></div></div>
+          <div class="cap"><b>Не так</b><br>Голова обрезана, слишком близко, лицо не целиком.</div></div>
+      </div>
+      <h3>Технические требования</h3>
+      <ul>
+        <li>Оригинал файла с камеры или телефона: не меньше <b>2000 px</b> по короткой стороне (лучше 3000+).</li>
+        <li>В Telegram и мессенджерах фото сжимается до 1280 px — отправляйте <b>файлом</b>, а не картинкой, или загружайте на Диск.</li>
+        <li>Подойдёт фото «как на американскую визу» из фотосалона — попросите исходный файл.</li>
+        <li>Кадр по грудь: голова и плечи целиком, над головой немного воздуха.</li>
+        <li>На дополнительных фото — без чужих людей в кадре или с их согласия.</li>
+      </ul>
+      <div class="note">Нет подходящего фото? Напишите Артёму <b class="nick" data-k="contactTech">@artiechoke</b>: по 3–5 вашим обычным фото мы сделаем портрет в нейросети и пришлём на одобрение. Без вашего «да» такое фото не печатается.</div>
+      <div class="read"><button type="button" aria-pressed="false">Прочитано</button></div>
+    </section>
+
+    <section class="sheet" id="social" data-sec>
+      <span class="tape" aria-hidden="true"></span>
+      <span class="bracket">раздел 8</span>
+      <h2>Соцсети и QR-коды</h2>
+      <ul>
+        <li>На вашей странице будет QR-код на ваш профиль. Профиль (Instagram, Telegram-канал или другой) должен быть <b>открытым</b> — закрытый профиль читатель не увидит.</li>
+        <li>Держите профиль открытым минимум 3 месяца после выхода выпуска.</li>
+        <li>Делать QR самим не нужно: достаточно ссылки в анкете. QR сгенерирует редакция.</li>
+        <li>Поэтам мы делаем отдельный QR на видео с вашим прочтением стихов.</li>
+      </ul>
+      <div class="read"><button type="button" aria-pressed="false">Прочитано</button></div>
+    </section>
+
+    <section class="sheet" id="poets" data-sec>
+      <span class="tape" aria-hidden="true"></span>
+      <span class="bracket">раздел 9</span>
+      <h2>Поэтам и авторам текстов</h2>
+      <h3>Тексты</h3>
+      <ul>
+        <li>Word или Google Док, без картинок внутри. Каждое стихотворение — с названием (или «***»).</li>
+        <li>Ориентир объёма: 1 страница ≈ до 2500 знаков с пробелами или 1–2 стихотворения до 30 строк вместе с фото.</li>
+        <li>Пишите на русском или белорусском. Проверьте «і», «ў», «ё» — мы печатаем как прислано.</li>
+      </ul>
+      <h3>Аудио прочтение</h3>
+      <ul>
+        <li>Тихая комната, телефон в 20–30 см от лица, без музыки и эха (лучше в комнате с мебелью и шторами).</li>
+        <li>Формат M4A, MP3 или WAV. Одно стихотворение — один файл, перед чтением 2 секунды тишины.</li>
+        <li>Голосовые сообщения Telegram не подходят: качество для QR-видео слишком низкое.</li>
+      </ul>
+      <div class="read"><button type="button" aria-pressed="false">Прочитано</button></div>
+    </section>
+
+    <section class="sheet" id="preview" data-sec>
+      <span class="tape" aria-hidden="true"></span>
+      <span class="bracket">раздел 10</span>
+      <h2>Превью, правки и публикации</h2>
+      <ul>
+        <li>Превью страниц появляется в папке «06 Превью», бот присылает уведомление.</li>
+        <li>Правим только текст и фото. Дизайн и вёрстку определяет редакция.</li>
+        <li>Один раунд правок: всё одним файлом в «07 Правки» до дедлайна. Правки не должны менять объём текста.</li>
+        <li>Макеты, скрины страниц и QR-видео не публикуем до официального выхода выпуска — дня, когда первый читатель получит журнал. До этого можно анонсировать участие и показывать процесс с размытым макетом.</li>
+        <li>После выхода — совместные посты с <b class="nick" data-k="instagram">@lingerlongmagazine</b>, рилсы и анпакинг. Идеи и тексты мы подготовим.</li>
+      </ul>
+      <div class="read"><button type="button" aria-pressed="false">Прочитано</button></div>
+    </section>
+
+    <section class="sheet" id="pay" data-sec>
+      <span class="tape" aria-hidden="true"></span>
+      <span class="bracket">раздел 11</span>
+      <h2>Оплата и доставка</h2>
+      <h3>Оплата</h3>
+      <ul>
+        <li>Платите только после того, как бот прислал сумму и реквизиты. Реквизиты публично не размещаются.</li>
+        <li>Удобнее всего — ЕРИП «Пополнение счёта» по реквизитам из бота: обычно без комиссии.</li>
+        <li>После оплаты отправьте боту чек (скрин или PDF) и нажмите «Чек об оплате». Редакция подтвердит оплату, бот сообщит.</li>
+        <li>Один автор — один платёж. Если платит другой человек, укажите это при отправке чека.</li>
+        <li>Без подтверждённой оплаты в срок страницы автора переносятся в следующий выпуск.</li>
+      </ul>
+      <h3>Доставка</h3>
+      <ul>
+        <li>Европочта до отделения — <b data-k="deliveryEuropost">5</b> BYN за посылку, добавляется к взносу. Белпочта (по адресу с индексом) и СДЭК для России — по тарифу службы, сумму сообщим отдельно. Если в вашем городе нет Европочты, выбирайте Белпочту.</li>
+        <li>Проверьте номер телефона: на него придёт SMS о доставке. Трек-номер отправит бот.</li>
+        <li>Если несколько экземпляров едут в один город одной посылкой, бот сообщит, у кого их забрать.</li>
+      </ul>
+      <h3>Возврат</h3>
+      <ul>
+        <li>До сдачи макета в типографию взнос возвращается полностью.</li>
+        <li>После сдачи в печать взнос не возвращается: расходы на печать уже понесены.</li>
+        <li>Брак печати или повреждение при пересылке — заменим экземпляр.</li>
+      </ul>
+      <div class="read"><button type="button" aria-pressed="false">Прочитано</button></div>
+    </section>
+
+    <section class="sheet" id="legal" data-sec>
+      <span class="tape" aria-hidden="true"></span>
+      <span class="bracket">раздел 12</span>
+      <h2>Юридическая информация</h2>
+      <h3>Статус проекта и взноса</h3>
+      <p>Linger Long — некоммерческий творческий проект физических лиц. Он не зарегистрирован как средство массовой информации и не является им. Печатные экземпляры — презентационные экземпляры малого тиража для участников проекта, они не предназначены для розничной продажи.</p>
+      <p>Взнос автора — возмещение фактических расходов на печать экземпляров и их пересылку. Он не является платой за публикацию, рекламу или иную услугу. Авторские гонорары не выплачиваются.</p>
+      <p>Эти правила не являются публичной офертой: участие возможно только после одобрения заявки редакцией. Редакция вправе отказать без объяснения причин и вернуть внесённый взнос.</p>
+      <h3>Авторские права</h3>
+      <p>Автор сохраняет все права на свои произведения (Закон Республики Беларусь «Об авторском праве и смежных правах» от 17.05.2011 № 262-З). Отправляя материалы, автор безвозмездно предоставляет проекту простую (неисключительную) лицензию: воспроизвести их в печатном выпуске, в превью и цифровой версии выпуска, в видео для QR-кодов и в соцсетях проекта для его продвижения. Корректура и вёрстка допускаются, изменения смысла — только с согласия автора.</p>
+      <p>Автор гарантирует, что материалы созданы им или у него есть права на них, а люди на фото и фотограф согласны на публикацию. Материалы не должны нарушать законодательство Республики Беларусь и права третьих лиц; рекламу третьих лиц не публикуем.</p>
+      <h3>Персональные данные</h3>
+      <p>Оператор персональных данных — <span id="operator">Юлия Медюхо, автор проекта Linger Long</span>. Данные обрабатываются на основании согласия в соответствии с Законом Республики Беларусь «О защите персональных данных» от 07.05.2021 № 99-З.</p>
+      <ul>
+        <li><b>Какие данные:</b> ФИО, контакты, город, адрес и данные для доставки, фото, голос, тексты, ссылки на соцсети, сведения об оплате.</li>
+        <li><b>Зачем:</b> подготовка выпуска, связь с автором, доставка экземпляров, учёт взносов.</li>
+        <li><b>Где хранятся:</b> Google Диск, Google Таблицы и Google Формы (Google LLC, США) и Telegram. Это трансграничная передача данных в страны, где может не обеспечиваться надлежащий уровень защиты прав субъектов персональных данных. Риски: данные могут стать доступны иностранным органам, а защита ваших прав может быть затруднена. Заполняя анкету, вы подтверждаете, что проинформированы об этих рисках (ст. 9 Закона № 99-З).</li>
+        <li><b>Срок:</b> до окончания работы над выпуском и 3 года после его выхода (для учёта взносов), затем данные удаляются. Опубликованный выпуск остаётся в тираже.</li>
+        <li><b>Ваши права:</b> узнать, какие данные обрабатываются, исправить их, отозвать согласие и потребовать удаления — напишите <b class="nick" data-k="contactMain">@yuliyakobyzeva</b>. Отзыв согласия не затрагивает уже напечатанный тираж.</li>
+        <li>Участники младше 18 лет — только с согласия законного представителя.</li>
+      </ul>
+      <p class="muted">Раздел составлен в информационных целях и не является юридической консультацией.</p>
+      <div class="read"><button type="button" aria-pressed="false">Прочитано</button></div>
+    </section>
+
+    <section class="final" id="agree" aria-labelledby="agreeH">
+      <span class="bracket" style="color:inherit;opacity:.7">последний шаг</span>
+      <h2 id="agreeH">Я изучил(а) правила</h2>
+      <p id="agreeHint" class="muted">Отметьте «Прочитано» во всех разделах — тогда галочка станет доступна.</p>
+      <label class="agree locked" id="agreeLbl"><input type="checkbox" id="agreeBox" disabled> <span>Я прочитал(а) все правила для авторов Linger Long, согласен(на) с условиями участия, порядком оплаты и обработкой персональных данных.</span></label>
+      <button class="cta" id="agreeBtn" type="button" disabled>Я изучил(а) все правила</button>
+      <div class="success" id="success" hidden>
+        <p><b>Спасибо!</b> Правила приняты <span id="acceptedAt"></span>. Теперь заполните анкету — после одобрения придут ссылки на папку, группу выпуска и бота.</p>
+        <a class="btn" id="formLink" href="#" target="_top" rel="noopener">Заполнить анкету</a>
+        <p class="muted" id="formMissing" hidden>Анкета откроется здесь после запуска набора. Пока можно написать <span data-k="contactMain">@yuliyakobyzeva</span>.</p>
+      </div>
+    </section>
+  </main>
+
+  <aside class="side" aria-label="Прогресс чтения">
+    <div class="meter">
+      <span class="bracket">прочитано</span>
+      <div class="count"><span id="doneN">0</span> / <span id="totalN">12</span></div>
+      <div class="bar" aria-hidden="true"><i id="barFill"></i></div>
+    </div>
+    <ul class="toc" id="toc"></ul>
+  </aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>Организационные вопросы: <b data-k="contactMain">@yuliyakobyzeva</b> <button class="copy" type="button" data-copy="contactMain">копировать</button></div>
+    <div>Фото, файлы, техника: <b data-k="contactTech">@artiechoke</b> <button class="copy" type="button" data-copy="contactTech">копировать</button></div>
+    <div class="muted">Linger Long · <span data-k="instagram">@lingerlongmagazine</span> · правила v<span id="ver2"></span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Сайт работает в трёх местах: внутри Apps Script (google.script.run), на внешнем хостинге (apiUrl, данные из таблицы без входа в Google)
+  // и как статичная копия (значения по умолчанию).
+  var C0 = window.LL_CONFIG || {};
+  var IN_GAS = !!(window.google && google.script && google.script.run);
+  function api(q){ return fetch(C0.apiUrl + (C0.apiUrl.indexOf('?')<0 ? '?' : '&') + q, {credentials:'omit', redirect:'follow'}).then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); }); }
+  if (!IN_GAS && C0.apiUrl) {
+    var started = false, start = function(c){ if (started) return; started = true; var m = {}; Object.keys(C0).forEach(function(k){ m[k]=C0[k]; }); if (c) Object.keys(c).forEach(function(k){ if (c[k] !== '' && c[k] != null) m[k]=c[k]; }); boot(m); };
+    setTimeout(function(){ start(null); }, 3500);
+    api('api=config').then(start, function(){ start(null); });
+  } else boot(C0);
+
+function boot(C){
+  var $ = function(s,r){return (r||document).querySelector(s)};
+  var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var store = {get:function(k){try{return localStorage.getItem(k)}catch(e){return null}}, set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+  var KEY = 'll-rules-' + (C.version||'1');
+
+  // ── выбор: читатель / автор ──
+  var MODE_KEY = 'll-mode';
+  var VIEWS = {buy:'#buyView', author:'#authorView', reg:'#regView'}, PATHS = {buy:'#pathBuy', author:'#pathAuthor', reg:'#pathRegular'};
+  function setMode(m, scroll){
+    if (!VIEWS[m]) m = 'author';
+    Object.keys(VIEWS).forEach(function(k){ $(VIEWS[k]).hidden = k !== m; $(PATHS[k]).setAttribute('aria-pressed', k === m ? 'true':'false'); });
+    store.set(MODE_KEY, m);
+    if (scroll) $(VIEWS[m]).scrollIntoView({behavior:'smooth', block:'start'});
+    if (m === 'reg' && !regOpen) setTimeout(function(){ try{ $('#codeIn').focus({preventScroll:true}); }catch(e){} }, 300);
+  }
+  var regOpen = false;
+  $('#pathBuy').addEventListener('click', function(){ setMode('buy', true); });
+  $('#pathAuthor').addEventListener('click', function(){ setMode('author', true); });
+  $('#pathRegular').addEventListener('click', function(){ setMode('reg', true); });
+  $('#toAuthor').addEventListener('click', function(){ setMode('author', true); });
+  $('#toAuthor2').addEventListener('click', function(){ setMode('author', true); });
+  $('#toRules').addEventListener('click', function(){ setMode('author', true); });
+  if (C.hasRegular === false) $('#pathRegular').hidden = true;
+  setMode(store.get(MODE_KEY) || 'author', false);
+
+  // ── постоянные авторы: кодовое слово ──
+  var CODE_KEY = 'll-reg-code', reg = {prefill:'', formUrl:'', rubric:''};
+  function norm(w){ return String(w||'').toLowerCase().replace(/ё/g,'е').replace(/\s+/g,''); }
+  function sha(w){
+    try { return crypto.subtle.digest('SHA-256', new TextEncoder().encode(w)).then(function(b){ return Array.prototype.map.call(new Uint8Array(b), function(x){ return ('0'+x.toString(16)).slice(-2); }).join(''); }); }
+    catch(e){ return Promise.resolve(''); }
+  }
+  function checkCode(word){
+    if (IN_GAS) return new Promise(function(res){
+      google.script.run.withSuccessHandler(res).withFailureHandler(function(){ res({ok:false, error:true}); }).checkRegularCode(word);
+    });
+    var byHash = function(){ return C.regularCodeHash ? sha(norm(word)).then(function(h){ return (h && h === C.regularCodeHash) ? {ok:true, formUrl:C.regularFormUrl||'', prefill:'', rubrics:C.regularRubrics||[]} : {ok:false}; }) : Promise.resolve({ok:false, error:true}); };
+    if (C.apiUrl) return api('api=code&w=' + encodeURIComponent(word)).then(function(r){ return r; }, byHash);
+    return byHash();
+  }
+  function openReg(r, word){
+    regOpen = true; reg.prefill = r.prefill || ''; reg.formUrl = r.formUrl || '';
+    store.set(CODE_KEY, word);
+    $('#regGate').hidden = true; $('#regInner').hidden = false;
+    $('#pathRegular').querySelector('.go').textContent = 'ваш раздел →';
+    var box = $('#rubs'); box.innerHTML = '';
+    (r.rubrics||[]).forEach(function(t){ var b=document.createElement('button'); b.type='button'; b.textContent=t; b.setAttribute('aria-pressed','false'); box.appendChild(b); });
+    box.hidden = !(r.rubrics||[]).length;
+    $('#rubOtherLbl').textContent = (r.rubrics||[]).length ? 'Или впишите название новой рубрики' : 'Название вашей рубрики';
+    renderRegLink();
+  }
+  function renderRegLink(){
+    $$('button',$('#rubs')).forEach(function(b){ b.setAttribute('aria-pressed', b.textContent===reg.rubric ? 'true':'false'); });
+    var a = $('#regLink');
+    if (!reg.formUrl){ a.hidden = true; $('#regMissing').hidden = false; $('#regPick').hidden = true; return; }
+    $('#regMissing').hidden = true;
+    var ok = !!reg.rubric; a.hidden = !ok;
+    $('#regPick').hidden = false;
+    $('#regPick').textContent = ok ? 'Рубрика: «' + reg.rubric + '». Кодовое слово и рубрика уже вписаны в анкету.' : 'Выберите рубрику — и откроется анкета.';
+    a.href = ok ? (reg.prefill ? reg.prefill.replace('LLRUBRIC', encodeURIComponent(reg.rubric)) : reg.formUrl) : '#';
+  }
+  $('#rubs').addEventListener('click', function(e){ var b=e.target.closest('button'); if(!b) return; reg.rubric=b.textContent; $('#rubOther').value=''; renderRegLink(); });
+  $('#rubOther').addEventListener('input', function(){ reg.rubric=this.value.trim(); renderRegLink(); });
+  $('#codeForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var w = $('#codeIn').value; if (!norm(w)) { $('#codeErr').textContent='Введите кодовое слово.'; return; }
+    var btn = $('#codeBtn'); btn.disabled = true; btn.textContent = 'Проверяю…'; $('#codeErr').textContent='';
+    checkCode(w).then(function(r){
+      btn.disabled = false; btn.textContent = 'Войти';
+      if (r && r.ok) { openReg(r, w); $('#regView').scrollIntoView({behavior:'smooth', block:'start'}); }
+      else $('#codeErr').textContent = r && r.error ? 'Не получилось проверить — обновите страницу и попробуйте ещё раз.' : 'Слово не подошло. Проверьте написание или спросите у редакции.';
+    });
+  });
+  var savedCode = store.get(CODE_KEY);
+  if (savedCode) checkCode(savedCode).then(function(r){ if (r && r.ok) openReg(r, savedCode); });
+  function ru(iso){ var p=String(iso||'').split('-'); return p.length===3 ? p[2]+'.'+p[1]+'.'+p[0] : ''; }
+  if (C.orderDeadline) $('#ordDl').textContent = ru(C.orderDeadline);
+  if (C.shipDate) $('#shipDl').textContent = ru(C.shipDate);
+  var os = {q:1, d:'euro'};
+  function renderOrder(){
+    $('#oqOut').textContent = os.q;
+    $$('button',$('#odSeg')).forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.d===os.d ? 'true':'false'); });
+    var ds = os.d==='euro' ? (C.deliveryEuropost||0) : 0;
+    var rows = [[os.q + ' × ' + C.priceCopy, os.q*C.priceCopy + ' BYN'], [os.d==='euro' ? 'доставка Европочтой' : (os.d==='bel' ? 'Белпочта — по тарифу' : 'СДЭК — по тарифу'), os.d==='euro' ? ds + ' BYN' : '—']];
+    $('#orRows').innerHTML = rows.map(function(x){return '<div class="row"><span>'+x[0]+'</span><span>'+x[1]+'</span></div>'}).join('');
+    $('#orTotal').textContent = (os.q*C.priceCopy + ds) + ' BYN' + (os.d==='euro' ? '' : ' + доставка');
+  }
+  $('#oqMinus').onclick=function(){ os.q=Math.max(1,os.q-1); renderOrder(); };
+  $('#oqPlus').onclick=function(){ os.q=Math.min(10,os.q+1); renderOrder(); };
+  $('#odSeg').addEventListener('click', function(e){ var b=e.target.closest('button'); if(!b) return; os.d=b.dataset.d; renderOrder(); });
+  renderOrder();
+  $('#buyAgree').addEventListener('change', function(){ $('#buyBtn').disabled = !this.checked; });
+  $('#buyBtn').addEventListener('click', function(){
+    $('#buySuccess').hidden = false;
+    if (C.orderFormUrl){ $('#orderLink').href = C.orderFormUrl; $('#orderLink').hidden=false; $('#orderMissing').hidden=true; }
+    else { $('#orderLink').hidden=true; $('#orderMissing').hidden=false; }
+  });
+
+
+  // подстановка настроек
+  $$('[data-k]').forEach(function(el){ if(C[el.dataset.k]!=null) el.textContent = C[el.dataset.k]; });
+  $('#ver').textContent = C.version; $('#ver2').textContent = C.version;
+  $('#issueTitle').textContent = C.issue;
+  $('#operator').textContent = C.operator;
+  $('#stampPrice').textContent = C.priceCopy + ' BYN';
+  $('#stampNote').textContent = '+ ' + C.pricePage + ' BYN за каждую страницу автора. От ' + C.pagesForTwoCopies + ' страниц — два экземпляра. Максимум ' + C.maxPages + ' страниц.';
+  document.title = 'Linger Long · Правила для авторов · ' + C.issue;
+  $('#regTotal').textContent = ((C.priceRegular||C.priceCopy) + (C.deliveryEuropost||0)) + ' BYN';
+
+  // цена
+  function price(pages, extra, regular){
+    if (regular) { var rg = C.priceRegular || C.priceCopy; return {copies:1, copiesSum:rg, pagesSum:0, extraSum:extra*C.priceCopy, total:rg + extra*C.priceCopy, regular:true}; }
+    var copies = pages >= C.pagesForTwoCopies ? 2 : 1;
+    return {copies:copies, copiesSum:copies*C.priceCopy, pagesSum:pages*C.pricePage, extraSum:extra*C.priceCopy, total:copies*C.priceCopy + pages*C.pricePage + extra*C.priceCopy};
+  }
+  window.LL_price = price;
+  var st = {pages:1, extra:0, del:'euro', reg:false};
+  var seg = $('#pagesSeg');
+  for (var p=1;p<=C.maxPages;p++){ var b=document.createElement('button'); b.type='button'; b.textContent=p; b.dataset.p=p; b.setAttribute('aria-label', p+' стр.'); seg.appendChild(b); }
+  seg.addEventListener('click', function(e){ var b=e.target.closest('button'); if(!b) return; st.pages=+b.dataset.p; renderCalc(); });
+  $('#delSeg').addEventListener('click', function(e){ var b=e.target.closest('button'); if(!b) return; st.del=b.dataset.d; renderCalc(); });
+  $('#exMinus').onclick=function(){ st.extra=Math.max(0,st.extra-1); renderCalc(); };
+  $('#exPlus').onclick=function(){ st.extra=Math.min(10,st.extra+1); renderCalc(); };
+  function plural(n,a,b,c){n=Math.abs(n)%100;var n1=n%10;if(n>10&&n<20)return c;if(n1>1&&n1<5)return b;if(n1==1)return a;return c}
+  function renderCalc(){
+    $$('button',seg).forEach(function(b){ b.setAttribute('aria-pressed', +b.dataset.p===st.pages ? 'true':'false'); });
+    $('#exOut').textContent = st.extra;
+    var r = price(st.pages, st.extra, st.reg);
+    var rows = r.regular ? [['выпуск постоянного автора (' + st.pages + ' ' + plural(st.pages,'страница','страницы','страниц') + ')', r.copiesSum]] :
+               [[r.copies + ' ' + plural(r.copies,'экземпляр','экземпляра','экземпляров') + ' × ' + C.priceCopy, r.copiesSum],
+                [st.pages + ' ' + plural(st.pages,'страница','страницы','страниц') + ' × ' + C.pricePage, r.pagesSum]];
+    if (st.extra) rows.push(['доп. ' + st.extra + ' × ' + C.priceCopy, r.extraSum]);
+    $$('button',$('#delSeg')).forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.d===st.del ? 'true':'false'); });
+    var dsum = st.del==='euro' ? (C.deliveryEuropost||0) : 0;
+    rows.push([st.del==='euro' ? 'доставка Европочтой' : (st.del==='bel' ? 'Белпочта — по тарифу' : 'СДЭК — по тарифу'), st.del==='euro' ? dsum : '—']);
+    $('#rcRows').innerHTML = rows.map(function(x){return '<div class="row"><span>'+x[0]+'</span><span>'+x[1]+(x[1]==='—'?'':' BYN')+'</span></div>'}).join('');
+    $('#rcTotal').textContent = (r.total + dsum) + ' BYN' + (st.del==='euro' ? '' : ' + доставка');
+  }
+  renderCalc();
+  var tb = $('#ptable tbody');
+  for (var q=1;q<=C.maxPages;q++){ var r=price(q,0); var tr=document.createElement('tr');
+    tr.innerHTML='<td>'+q+'</td><td>'+r.copies+'</td><td>'+r.copies+'×'+C.priceCopy+' + '+q+'×'+C.pricePage+'</td><td><b>'+r.total+'</b></td>'; tb.appendChild(tr); }
+
+  // дедлайны
+  var today = new Date(); today.setHours(0,0,0,0);
+  var nextMarked = false, tl = $('#tl');
+  (C.deadlines||[]).forEach(function(d){
+    var dt = new Date(d[0]+'T00:00:00'); var li=document.createElement('li');
+    var past = dt < today; if (past) li.className='past'; else if(!nextMarked){ li.className='next'; nextMarked=true; }
+    var dd = ('0'+dt.getDate()).slice(-2)+'.'+('0'+(dt.getMonth()+1)).slice(-2);
+    li.innerHTML = '<time datetime="'+d[0]+'">'+(past?'':'до ')+dd+'</time><div><b>'+d[1]+'</b>'+(li.className==='next'?'<span class="next-tag">ближайший</span>':'')+'<br><span class="muted">'+d[2]+'</span></div>';
+    tl.appendChild(li);
+  });
+
+  // прочтение разделов
+  var secs = $$('[data-sec]'), toc = $('#toc');
+  $('#totalN').textContent = secs.length;
+  var saved = {}; try{ saved = JSON.parse(store.get(KEY+'-read')||'{}') }catch(e){}
+  secs.forEach(function(s){
+    var t = $('h2',s).textContent; var li=document.createElement('li');
+    li.innerHTML='<a href="#'+s.id+'" data-for="'+s.id+'"><span class="dot"></span><span>'+t+'</span></a>'; toc.appendChild(li);
+    var btn = $('.read button',s);
+    if (saved[s.id]) setRead(s,true);
+    btn.addEventListener('click', function(){ setRead(s, btn.getAttribute('aria-pressed')!=='true'); persist(); });
+  });
+  function setRead(s,on){ var btn=$('.read button',s); btn.setAttribute('aria-pressed', on?'true':'false'); btn.textContent = on ? 'Прочитано ✓' : 'Прочитано'; s.dataset.read = on ? '1':''; update(); }
+  function persist(){ var o={}; secs.forEach(function(s){ if(s.dataset.read) o[s.id]=1 }); store.set(KEY+'-read', JSON.stringify(o)); }
+  function update(){
+    var n = secs.filter(function(s){return s.dataset.read}).length;
+    $('#doneN').textContent = n; $('#barFill').style.width = (100*n/secs.length)+'%';
+    secs.forEach(function(s){ var a=$('a[data-for="'+s.id+'"]',toc); if(a) a.classList.toggle('done', !!s.dataset.read); });
+    var all = n === secs.length, box=$('#agreeBox');
+    box.disabled = !all; $('#agreeLbl').classList.toggle('locked', !all);
+    if(!all){ box.checked=false; }
+    $('#agreeHint').textContent = all ? 'Все разделы отмечены. Поставьте галочку и подтвердите.' : 'Отметьте «Прочитано» во всех разделах — осталось ' + (secs.length-n) + '.';
+    $('#agreeBtn').disabled = !(all && box.checked);
+  }
+  $('#agreeBox').addEventListener('change', update);
+  $('#agreeBtn').addEventListener('click', function(){
+    var at = new Date(); var stamp = at.toLocaleString('ru-RU');
+    store.set(KEY+'-accepted', at.toISOString());
+    showSuccess(stamp);
+    try { if (IN_GAS) google.script.run.logRulesAccepted({version:C.version, at:at.toISOString(), ua:navigator.userAgent});
+      else if (C.apiUrl) api('api=rules&v=' + encodeURIComponent(C.version) + '&ua=' + encodeURIComponent(navigator.userAgent.slice(0,180))).catch(function(){}); } catch(e){}
+  });
+  function showSuccess(stamp){
+    $('#acceptedAt').textContent = stamp; $('#success').hidden=false;
+    var a = $('#formLink');
+    if (C.formUrl){ a.href = C.formUrl; a.hidden=false; $('#formMissing').hidden=true; }
+    else { a.hidden=true; $('#formMissing').hidden=false; }
+    $('#agreeBtn').textContent = 'Правила приняты ✓'; $('#agreeBtn').disabled = true;
+  }
+  var acc = store.get(KEY+'-accepted');
+  if (acc && secs.every(function(s){return s.dataset.read})){ $('#agreeBox').checked = true; showSuccess(new Date(acc).toLocaleString('ru-RU')); }
+  update();
+
+  // копирование ников
+  $$('[data-copy]').forEach(function(b){ b.addEventListener('click', function(){
+    var v = C[b.dataset.copy]||''; var done=function(){ b.textContent='скопировано'; setTimeout(function(){b.textContent='копировать'},1500) };
+    try { navigator.clipboard.writeText(v).then(done, function(){}); } catch(e){}
+  }); });
+}
+})();
+</script>
+
+</body>
+</html>
