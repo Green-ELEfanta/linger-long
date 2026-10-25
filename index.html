@@ -374,8 +374,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
     <div id="regGate">
       <p>Этот раздел для авторов постоянных рубрик Linger Long. Введите фамилию, имя и своё кодовое слово от редакции — и откроется ваша анкета.</p>
       <form class="regform" id="codeForm" autocomplete="off">
-        <label><span class="lbl">Фамилия</span><input id="sIn" type="text" autocomplete="family-name" autocapitalize="words" spellcheck="false"></label>
-        <label><span class="lbl">Имя</span><input id="nIn" type="text" autocomplete="given-name" autocapitalize="words" spellcheck="false"></label>
+        <label><span class="lbl">Фамилия</span><input id="sIn" type="text" autocomplete="off" autocapitalize="none" spellcheck="false"></label>
+        <label><span class="lbl">Имя</span><input id="nIn" type="text" autocomplete="off" autocapitalize="none" spellcheck="false"></label>
         <label><span class="lbl">Кодовое слово</span><input id="codeIn" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go"></label>
         <button class="cta" id="codeBtn" type="submit">Войти</button>
       </form>
@@ -711,7 +711,7 @@ function boot(C){
     Object.keys(VIEWS).forEach(function(k){ $(VIEWS[k]).hidden = k !== m; $(PATHS[k]).setAttribute('aria-pressed', k === m ? 'true':'false'); });
     store.set(MODE_KEY, m);
     if (scroll) $(VIEWS[m]).scrollIntoView({behavior:'smooth', block:'start'});
-    if (m === 'reg' && !regOpen) setTimeout(function(){ try{ $(($('#sIn').value ? '#codeIn' : '#sIn')).focus({preventScroll:true}); }catch(e){} }, 300);
+    if (m === 'reg' && !regOpen) setTimeout(function(){ try{ $('#sIn').focus({preventScroll:true}); }catch(e){} }, 300);
   }
   var regOpen = false;
   $('#pathBuy').addEventListener('click', function(){ setMode('buy', true); });
@@ -743,12 +743,13 @@ function boot(C){
     if (C.apiUrl) return api('api=code&s=' + encodeURIComponent(sur) + '&n=' + encodeURIComponent(nam) + '&w=' + encodeURIComponent(word)).then(function(r){ return r; }, byHash);
     return byHash();
   }
-  var who = {}; try { who = JSON.parse(store.get(CRED_KEY) || '{}'); } catch(e){}
-  if (who.s) $('#sIn').value = who.s; if (who.n) $('#nIn').value = who.n;
+  // поля всегда пустые: ничего не запоминаем (и стираем то, что могло сохраниться раньше)
+  try { localStorage.removeItem(CRED_KEY); localStorage.removeItem('ll-reg-code'); } catch(e){}
+  $('#sIn').value = ''; $('#nIn').value = ''; $('#codeIn').value = '';
   function openReg(r){
     regOpen = true;
     $('#regGate').hidden = true; $('#regInner').hidden = false;
-    $('#regHello').textContent = (r.name ? r.name + ', здравствуйте!' : 'Здравствуйте!');
+    var nm = String(r.name||'').trim(); nm = nm ? nm.charAt(0).toUpperCase() + nm.slice(1) : ''; $('#regHello').textContent = (nm ? nm + ', здравствуйте!' : 'Здравствуйте!');
     $('#pathRegular').querySelector('.go').textContent = 'ваш раздел →';
     var a = $('#regLink');
     if (!r.formUrl){ a.hidden = true; $('#regPick').hidden = true; $('#regMissing').hidden = false; return; }
@@ -764,7 +765,7 @@ function boot(C){
     var btn = $('#codeBtn'); btn.disabled = true; btn.textContent = 'Проверяю…'; $('#codeErr').textContent = '';
     checkCode(sur, nam, w).then(function(r){
       btn.disabled = false; btn.textContent = 'Войти';
-      if (r && r.ok) { store.set(CRED_KEY, JSON.stringify({s:sur, n:nam})); openReg(r); $('#regView').scrollIntoView({behavior:'smooth', block:'start'}); }
+      if (r && r.ok) { openReg(r); $('#regView').scrollIntoView({behavior:'smooth', block:'start'}); }
       else $('#codeErr').textContent = r && r.error ? 'Не получилось проверить — обновите страницу и попробуйте ещё раз.' : 'Не нашли постоянного автора с такими фамилией, именем и кодовым словом. Проверьте написание или спросите у редакции.';
     });
   });
