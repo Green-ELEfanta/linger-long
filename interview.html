@@ -122,7 +122,7 @@ textarea:focus{border-color:var(--fg)}
   <section class="intro" id="intro">
     <div>
       <div class="name" id="authorName">…</div>
-      <p id="introText">Это ваше интервью для журнала. Отвечайте так, как рассказали бы другу на кухне: с местами, именами, запахами и датами. Справа будет подсказывать редактор, но в текст попадут только ваши слова.</p>
+      <p id="introText">Это ваше интервью для журнала. Отвечайте так, как рассказали бы другу на кухне: с местами, именами, запахами и датами, и не экономьте слова — в номер попадёт лучшая половина, остальное поможет нам выбрать. Справа будет подсказывать редактор, но в текст попадут только ваши слова.</p>
     </div>
     <div class="pill" id="progressPill">[ 0 из 0 ]</div>
   </section>
@@ -141,7 +141,7 @@ textarea:focus{border-color:var(--fg)}
       <label class="sr" for="answer">Ваш ответ</label>
       <textarea id="answer" placeholder="Начните с конкретного дня, места или человека…" spellcheck="true"></textarea>
       <div class="bar">
-        <div class="count" id="count"><b>0</b> знаков · цель <span id="goal">800</span></div>
+        <div class="count" id="count"><b>0</b> знаков · не меньше <span id="goal">1500</span></div>
         <div class="actions">
           <button type="button" id="hintBtn">Подсказать</button>
           <button type="button" id="saveBtn" class="primary">Сохранить</button>
@@ -186,15 +186,15 @@ const DEMO = !TOKEN || params.get('demo') === '1';
 const DEMO_DATA = {
   name: 'Анна', fullName: 'Анна Матесович', issue: 'Зимний выпуск · 18', status: 'в работе',
   questions: [
-    { id:'q1', text:'Какой предмет из вашей мастерской вы бы не продали ни за какие деньги? Расскажите его историю.', lead:'Не о ремесле вообще, а об одной вещи: откуда она, кто её трогал, что с ней было.', goal:700,
+    { id:'q1', text:'Какой предмет из вашей мастерской вы бы не продали ни за какие деньги? Расскажите его историю.', lead:'Не о ремесле вообще, а об одной вещи: откуда она, кто её трогал, что с ней было.', goal:1500,
       seeds:['первая форма для бетона, которую вы отлили в 2018-м','чашка, которую подарил Роман','предмет, который сломался, но вы его оставили'] },
-    { id:'q2', text:'Опишите день, когда вы впервые подумали: «Это не хобби, это моя работа». Где вы были, что было на столе, кто был рядом?', lead:'Нужна сцена, а не вывод. Время суток, свет, звуки, кто что сказал.', goal:800,
+    { id:'q2', text:'Опишите день, когда вы впервые подумали: «Это не хобби, это моя работа». Где вы были, что было на столе, кто был рядом?', lead:'Нужна сцена, а не вывод. Время суток, свет, звуки, кто что сказал.', goal:1800,
       seeds:['первый заказ от незнакомого человека','момент, когда отказались от прежней профессии','реакция близких в тот день'] },
-    { id:'q3', text:'Чего в вашей работе вы терпеть не можете, но делаете всё равно?', lead:'Обратный угол: честно о скучном, тяжёлом или смешном.', goal:500,
+    { id:'q3', text:'Чего в вашей работе вы терпеть не можете, но делаете всё равно?', lead:'Обратный угол: честно о скучном, тяжёлом или смешном.', goal:1200,
       seeds:['шлифовка','ожидание, пока застынет','разговоры о цене'] },
-    { id:'q4', text:'Когда книга лежит на полке LETTURA, что она «думает» о своём читателе? Напишите это от лица книги.', lead:'Разрешаем себе игру: две-три фразы голосом предмета.', goal:400,
+    { id:'q4', text:'Когда книга лежит на полке LETTURA, что она «думает» о своём читателе? Напишите это от лица книги.', lead:'Разрешаем себе игру: две-три фразы голосом предмета.', goal:900,
       seeds:['ваша недочитанная книга прямо сейчас','кто в доме берёт книгу чаще','что вы читаете по утрам'] },
-    { id:'q5', text:'Какое ваше мнение о красоте изменилось за последние три года, и что его изменило?', lead:'Контраст: какой вы были, какой стали, и что между этим произошло.', goal:700,
+    { id:'q5', text:'Какое ваше мнение о красоте изменилось за последние три года, и что его изменило?', lead:'Контраст: какой вы были, какой стали, и что между этим произошло.', goal:1500,
       seeds:['бетон как материал, который «не домашний»','заказ, который вы отказались делать','чужая работа, которая вас задела'] }
   ],
   answers: {}
@@ -255,7 +255,7 @@ function shorten(s,n){ return s.length>n ? s.slice(0,n).replace(/\s+\S*$/,'') + 
 function show(i){
   cur = i; const q = data.questions[i]; const a = data.answers[q.id]||{};
   el.qLabel.textContent = 'Вопрос ' + (i+1) + ' из ' + data.questions.length;
-  el.qText.textContent = q.text; el.qLead.textContent = q.lead||''; el.goal.textContent = q.goal||600;
+  el.qText.textContent = q.text; el.qLead.textContent = q.lead||''; el.goal.textContent = q.goal||1500;
   el.ta.value = a.text||''; updateCount(); el.status.textContent = a.done ? 'Сохранено в редакцию ✓' : '';
   el.whisper.innerHTML = ''; (hintsShown[q.id]||[]).forEach(h => addHint(h, false));
   if (!el.whisper.children.length) el.whisper.innerHTML = '<div class="empty">Начните писать. Когда остановитесь, здесь появится наводящий вопрос. Или нажмите «Подсказать».</div>';
@@ -269,8 +269,8 @@ function stash(){
   saveLocal();
 }
 function updateCount(){
-  const n = el.ta.value.replace(/\s+/g,' ').trim().length; const goal = data.questions[cur].goal||600;
-  el.count.innerHTML = '<b>' + n.toLocaleString('ru-RU') + '</b> знаков · цель ' + goal;
+  const n = el.ta.value.replace(/\s+/g,' ').trim().length; const goal = data.questions[cur].goal||1500;
+  el.count.innerHTML = '<b>' + n.toLocaleString('ru-RU') + '</b> знаков · не меньше ' + goal + (n >= goal ? ' ✓' : '');
   el.count.className = 'count' + (n >= goal ? ' ok' : '');
 }
 
